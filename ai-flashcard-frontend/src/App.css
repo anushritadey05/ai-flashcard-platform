@@ -1,0 +1,205 @@
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f8f8fc 0%, #e6eeff 100%);
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #3c65bb;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #3c65bb;
+}
+
+.flashcard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.flashcard {
+  width: 260px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(60,101,187,0.08);
+  background: #fff;
+  cursor: pointer;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.15rem;
+}
+
+.flashcard-front {
+  background: #fff;
+  color: #3c65bb;
+}
+
+.flashcard-back {
+  background: #3c65bb;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flashcard-tags {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.flashcard-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+button {
+  font-size: 0.95rem;
+  background: #f7f7f7;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #e6eeff;
+}
+
+.add-form {
+  max-width: 360px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(60,101,187,0.07);
+  padding: 2rem;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #c2d1ff;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f6f8ff;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .flashcard-grid {
+    gap: 1rem;
+  }
+  .flashcard {
+    width: 95vw;
+    max-width: 320px;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+  .add-form {
+    max-width: 95vw;
+  }
+}
+
+/* ---- DARK MODE ---- */
+.dark-mode {
+  background: linear-gradient(135deg, #181a20 0%, #23263b 100%);
+  color: #e6e6e6;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+  color: #e6eeff;
+}
+
+.dark-mode .add-form {
+  background: #23263b;
+  box-shadow: 0 2px 10px rgba(60,101,187,0.18);
+}
+
+.dark-mode .flashcard-inner {
+  background: #23263b;
+  box-shadow: 0 4px 16px rgba(60,101,187,0.22);
+}
+
+.dark-mode .flashcard-front {
+  background: #23263b;
+  color: #e6eeff;
+}
+
+.dark-mode .flashcard-back {
+  background: #3c65bb;
+  color: #e6eeff;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="password"] {
+  background: #181a20;
+  color: #e6eeff;
+  border: 1px solid #3c65bb;
+}
+
+.dark-mode button {
+  background: #23263b;
+  color: #e6eeff;
+}
+
+.dark-mode button:hover {
+  background: #3c65bb;
+  color: #fff;
+}
+
+.dark-mode .flashcard-tags {
+  color: #b4b4b4;
+}
+
+.dark-mode li button {
+  background: #23263b;
+  color: #e6eeff;
+}
+
+.dark-mode li button:hover {
+  background: #3c65bb;
+  color: #fff;
+}
